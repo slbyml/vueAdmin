@@ -1,0 +1,96 @@
+<template>
+	<div class="appContent">
+		<div class="table table-border table-hover" v-loading.fullscreen="loading" loading-text="拼命加载中……">
+			<table cellspacing="0" cellpadding="0" border="0"  v-loading.fullscreen="aaa" @click="bbbb">
+				<thead>
+					<tr>
+						<th>文章ID</th>
+						<th>作者</th>
+						<th>标题</th>
+						<th>简介</th>
+						<th>阅读量</th>
+						<th>发布日期</th>
+						<th>设置</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="(item,index) in dataList">
+						<td>{{item.id}}</td>
+						<td>{{item.brief}}</td>
+						<td>{{item.title}}</td>
+						<td>{{item.author}}</td>
+						<td>{{item.number}}</td>
+						<td>{{item.data}}</td>
+						<td><pj-button type="primary" size="mini" @click.native="delList(index)" >删除</pj-button></td>
+					</tr>
+				</tbody>
+			</table>	
+			<div class="paginationBox">
+				<el-pagination
+				 	@current-change="handleCurrentChange" 
+				    layout="prev, pager, next"
+				    :total="50">
+				</el-pagination>	
+			</div>
+		</div>
+	</div>
+</template>
+<script>
+	import {getTableList} from "@/untils/fetch"
+	export default {
+		data(){
+			return {
+				dataList:{},
+				page:1,
+				loading:false,
+				aaa:false
+			}
+		},
+		created(){
+			this.getTableLists()
+		},
+		methods:{
+			bbbb(){
+				this.aaa=true
+				setTimeout(()=>{
+					this.aaa=false
+				},2000)
+			},
+			handleCurrentChange(val){
+				this.page=val
+				this.getTableLists()
+			},
+			getTableLists(){
+				this.loading=true
+				getTableList(this.page).then(response=>{
+					this.dataList=response.data.lists
+					this.loading=false
+				})
+			},
+			delList(index){
+				this.dataList.splice(index,1)
+			}
+		}
+	}
+</script>
+<style lang="scss">
+	.table{box-sizing:border-box;
+		table{width:100%;border-collapse:collapse;}
+		tr{background-color:#fff}
+		td , th{border-bottom:1px solid #dfe6ec;padding:10px;text-align:center;font-size:14px;}
+	}
+	.table-border{
+		thead tr{background-color:#eef1f6;}
+		th,td{border:1px solid #dfe6ec}
+	}
+	.table-hover{
+		tbody tr td{transition:background-color .25s}
+		tbody tr:hover td{background-color:#eef1f6}		
+	}
+	.paginationBox{margin-top:10px;
+		li,button{border:1px solid #d1dbe5;margin-left:-1px;
+			&.active{background-color: #20a0ff;color:#fff;}
+		}
+		button{padding:0 6px;}
+	}
+</style>
