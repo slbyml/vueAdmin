@@ -1,5 +1,6 @@
 <template>
 	<button class="button" 
+	@click="handleClick" 
 	:class="[
 		'button-'+type,
 		size?'button-'+size:'',
@@ -9,8 +10,8 @@
 
 		}
 	]">
-		<i class="iconfont icon-loading" v-if="loading" @click="handleClick"></i>
-		<span  @click="handleClick"><slot></slot></span>
+		<i class="iconfont icon-loading" v-if="loading" @click="stopClick"></i>
+		<span  @click="stopClick"><slot></slot></span>
 	</button>
 </template>
 <script>
@@ -26,7 +27,10 @@
 			disabled:Boolean
 		},
 		methods:{
-			handleClick(evt){				
+			handleClick(evt){
+				this.$emit("click",evt)
+			},
+			stopClick(evt){				
 		        if (this.disabled) {
 		          evt.stopPropagation();
 		        }

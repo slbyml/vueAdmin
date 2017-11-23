@@ -8,6 +8,8 @@ const toggleLoading=(el,binding)=>{
 		Vue.nextTick(()=>{
 			if(binding.modifiers.fullscreen){		//全屏
 				el.instance.fullscreen=true
+				el.oldOverflow=getStyle(document.body, 'overflow')
+				document.body.style.overflow = 'hidden'
 				document.body.appendChild(el.mask)	
 			}else{			
 				const elPosition=getStyle(el,"postion")		
@@ -25,6 +27,9 @@ const toggleLoading=(el,binding)=>{
 
 		})
 	}else{
+		if (binding.modifiers.fullscreen && el.oldOverflow !== 'hidden') {
+	        document.body.style.overflow = el.oldOverflow;
+	      }
 		el.instance.visible=false
 	}
 }

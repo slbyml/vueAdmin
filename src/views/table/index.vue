@@ -1,7 +1,7 @@
 <template>
 	<div class="appContent">
-		<div class="table table-border table-hover" v-loading.fullscreen="loading" loading-text="拼命加载中……">
-			<table cellspacing="0" cellpadding="0" border="0"  v-loading.fullscreen="aaa" @click="bbbb">
+		<div class="table table-border table-hover" v-loading="loading" loading-text="拼命加载中……">
+			<table cellspacing="0" cellpadding="0" border="0"  v-loading.fullscreen="aaa">
 				<thead>
 					<tr>
 						<th>文章ID</th>
@@ -50,12 +50,6 @@
 			this.getTableLists()
 		},
 		methods:{
-			bbbb(){
-				this.aaa=true
-				setTimeout(()=>{
-					this.aaa=false
-				},2000)
-			},
 			handleCurrentChange(val){
 				this.page=val
 				this.getTableLists()
