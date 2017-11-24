@@ -19,6 +19,10 @@ Vue.use(Pagination)
 import PjButton from './components/button';
 Vue.use(PjButton)
 
+/*文字提示*/
+import ToolTip from './components/tooltip';
+Vue.use(ToolTip)
+
 
 Vue.config.productionTip = false
 
