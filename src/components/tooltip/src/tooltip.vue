@@ -49,7 +49,7 @@
 		<transition name="fade">
 			<div class="tooltipContent"
         		 :class="'tooltip-' + placement"
-				 v-show="show"
+				 v-if="show"
 				 ref="tipover">
 				<i class="arrow"></i>
 				<div class="tooltipInner">

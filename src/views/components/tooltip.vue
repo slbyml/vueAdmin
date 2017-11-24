@@ -97,8 +97,8 @@
 	.myTootip{margin-bottom:20px;}
 	.button{margin-right:10px;}
 	.top{text-align:center}
-	.left{width:140px;float:left}
-	.right{width:140px;float:right;text-align:right}
+	.left{width:140px;float:left;text-align:center}
+	.right{width:140px;float:right;text-align:center}
 	.bottom{text-align:center;clear:both}
 }
 </style>

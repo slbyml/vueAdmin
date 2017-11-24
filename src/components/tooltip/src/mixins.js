@@ -92,6 +92,10 @@ export default {
 						this.position.left=trigger.offsetLeft + trigger.offsetWidth
 						this.position.top=trigger.offsetTop + trigger.offsetHeight - tipOver.offsetHeight			
 						break
+					default:
+						this.position.left=trigger.offsetLeft + trigger.offsetWidth/2 - tipOver.offsetWidth/2
+						this.position.top=trigger.offsetTop - tipOver.offsetHeight
+						break					
 				}
 				tipOver.style.top=`${this.position.top}px`
 				tipOver.style.left=`${this.position.left}px`				
