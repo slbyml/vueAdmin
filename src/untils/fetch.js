@@ -1,8 +1,11 @@
 import axios from 'axios'
 
+
+axios.defaults.baseURL = process.env.BASE_API;
+
 const getTableList=(page)=>{
 	return axios({
-		url:"/api/tables",
+		url:"/tables",
 		method:"get",
 		params:{
 			page

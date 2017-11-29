@@ -32,13 +32,13 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-        '/api': {
+        /*'/api': {
           target: ' https://easy-mock.com/mock/59f93a8df2f27b7b0aebc7e0/api',
           changeOrigin: true,
           pathRewrite: {
             '^/api': ''
           }
-        }
+        }*/
     },
     // CSS Sourcemaps off by default because relative paths are "buggy"
     // with this option, according to the CSS-Loader README
