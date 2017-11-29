@@ -1,0 +1,61 @@
+*{padding:0;margin:0}
+	.fade-enter-active, .fade-leave-active {
+  transition: opacity .25s
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0
+}
+.collapse-transition {
+	transition: height .3s ease-in-out,padding-top .3s ease-in-out,padding-bottom .3s ease-in-out
+}
+/* message */
+.move-up-enter-active {
+    -webkit-animation: moveUpIn .3s ease-in-out both;
+    animation: moveUpIn .3s ease-in-out both
+}
+
+.move-up-leave-active {
+    -webkit-animation: moveUpOut .3s ease-in-out both;
+    animation: moveUpOut .3s ease-in-out both
+}
+@keyframes moveUpOut {
+    0% {
+        opacity: 1;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+
+    to {
+        opacity: 0;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%)
+    }
+}
+@keyframes moveUpIn {
+    0% {
+        opacity: 0;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: translateY(-100%);
+        transform: translateY(-100%)
+    }
+
+    to {
+        opacity: 1;
+        -webkit-transform-origin: 0 0;
+        transform-origin: 0 0;
+        -webkit-transform: translateY(0);
+        transform: translateY(0)
+    }
+}
+
+#messageBox{position: fixed;width: 100%;left: 0;top: 10px;text-align: center;pointer-events:none;z-index: 1010}
+
+@keyframes rotating{
+	from {transform:rotate(0)}
+	to {transform:rotate(360deg)}
+}

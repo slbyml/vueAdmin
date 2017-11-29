@@ -12,21 +12,7 @@
 
 <style>
   	@import '~normalize.css/normalize.css';
-  	@import '//at.alicdn.com/t/font_465165_j53lmi58igcr3sor.css';
+  	@import '//at.alicdn.com/t/font_465165_owm6o2a2ys5opqfr.css';
+  	@import './assets/main.scss';
 
-  	*{padding:0;margin:0}
-  	.fade-enter-active, .fade-leave-active {
-	  transition: opacity .25s
-	}
-	.fade-enter, .fade-leave-to {
-	  opacity: 0
-	}
-	.collapse-transition {
-    	transition: height .3s ease-in-out,padding-top .3s ease-in-out,padding-bottom .3s ease-in-out
-	}
-	
-	@keyframes rotating{
-		from {transform:rotate(0)}
-		to {transform:rotate(360deg)}
-	}
 </style>

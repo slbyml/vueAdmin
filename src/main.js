@@ -23,6 +23,10 @@ Vue.use(PjButton)
 import ToolTip from './components/tooltip';
 Vue.use(ToolTip)
 
+/*message*/
+import Message from "./components/message"
+Vue.prototype.$Message=Message
+
 
 Vue.config.productionTip = false
 

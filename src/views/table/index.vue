@@ -17,7 +17,12 @@
 					<tr v-for="(item,index) in dataList">
 						<td>{{item.id}}</td>
 						<td>{{item.brief}}</td>
-						<td>{{item.title}}</td>
+						<td>										
+							<tool-tip placement="top">
+								{{item.title}}
+								<template slot="content">文章ID：{{item.id}}</template>
+							</tool-tip>
+						</td>
 						<td>{{item.author}}</td>
 						<td>{{item.number}}</td>
 						<td>{{item.data}}</td>
@@ -63,6 +68,7 @@
 			},
 			delList(index){
 				this.dataList.splice(index,1)
+				this.$Message.success("删除成功")
 			}
 		}
 	}

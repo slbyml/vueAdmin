@@ -6,16 +6,19 @@
 <template>
 	<div class="messageBox">	
 		<div class="list">
-			<pj-button @click="aaa">消息</pj-button>
+			<pj-button @click="handleClick('info')">消息</pj-button>
 		</div>
 		<div class="list">
-			<pj-button type="primary">成功</pj-button>
+			<pj-button type="primary" @click="handleClick('success')">成功</pj-button>
 		</div>
 		<div class="list">
-			<pj-button type="warning">警告</pj-button>
+			<pj-button type="warning" @click="handleClick('warning')">警告</pj-button>
 		</div>
 		<div class="list">
-			<pj-button type="danger">错误</pj-button>
+			<pj-button type="danger" @click="handleClick('error')">错误</pj-button>
+		</div>
+		<div class="list">
+			<pj-button  @click="handleClick('loading')">加载中</pj-button>
 		</div>
 	</div>
 </template>
@@ -27,8 +30,21 @@
 			}
 		},
 		methods:{
-			aaa(){
-				console.log('1')
+			handleClick(type){
+				if(type==="info"){
+					this.$Message.info("这是一条提示信息")
+				}else if(type==="success"){
+					this.$Message.success("这是一条正确信息")
+				}else if(type==="warning"){					
+					this.$Message.warning("这是一条警告信息")
+				}else if(type==="error"){					
+					this.$Message.error({
+						message:"这是一条错误信息",
+						duration:4000
+					})
+				}else if(type==="loading"){					
+					this.$Message.loading("这是一条加载信息……")
+				}
 			}
 		}
 	}

@@ -42,7 +42,8 @@ export default {
 		settipPosition(){
 			this.$nextTick(()=>{
 				const tipOver=this.$refs.tipover
-				const trigger=this.$refs.trigger.children[0]
+				let trigger=this.$refs.trigger.firstChild
+				trigger=trigger.nodeType===3?this.$refs.trigger:trigger
 				switch(this.placement){
 					case "top":
 						this.position.left=trigger.offsetLeft + trigger.offsetWidth/2 - tipOver.offsetWidth/2

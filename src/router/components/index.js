@@ -14,6 +14,7 @@ export default {
   name: '组件',
   icon:'zujianku',
   component: Layout,
+  redirect:"/components/button",
   children:[
   	{
 	  	path:"button",

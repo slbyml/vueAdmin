@@ -14,6 +14,8 @@ const tables = () => import("@/views/table")
 
 /*组件*/
 import components from './components'
+/*demo*/
+import demos from './demo'
 
 
 /*
@@ -60,5 +62,6 @@ export default new Router({
         }
       ]
     },
+    demos
   ]
 })

@@ -50,7 +50,8 @@
 			<div class="tooltipContent"
         		 :class="'tooltip-' + placement"
 				 v-if="show"
-				 ref="tipover">
+				 ref="tipover"
+				 @mouseenter="handleShowtip" @mouseleave="handleClosetip">
 				<i class="arrow"></i>
 				<div class="tooltipInner">
 					<slot name="content">{{content}}</slot>
