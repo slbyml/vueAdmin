@@ -41,7 +41,7 @@
 <style lang="scss" scoped>
 	/* 样式部分摘自element ui */
 	.button{display:inline-block;line-height:1;white-space: nowrap;cursor:pointer;color:#fff;text-align:center;box-sizing:border-box;outline:none;transition:.1s;padding:12px 20px;font-size:14px;border-radius:4px;border:1px solid #333;
-		&:focus,&:hover{opacity:.8}
+		&:active,&:hover{opacity:.8}
 		&.button-medium{padding:10px 20px;}
 		&.button-small{padding:9px 15px;font-size:12px;
 			.icon-loading{font-size:12px}

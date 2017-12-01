@@ -4,31 +4,44 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store'
-
-/*loading*/
-import loading from './components/loading'
-Vue.use(loading)
-
-
-/*element*/
-import {Pagination} from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(Pagination)
-
-/*全局按钮*/
-import PjButton from './components/button';
-Vue.use(PjButton)
-
-/*文字提示*/
-import ToolTip from './components/tooltip';
-Vue.use(ToolTip)
-
-/*message*/
-import Message from "./components/message"
-Vue.prototype.$Message=Message
-
+import {getToken,LoginOut} from '@/untils/auth'
+import {getInfo} from "@/untils/fetch"
+import "@/components"
 
 Vue.config.productionTip = false
+
+
+/*必须放在  new Vue前面，否则第一次不触发*/
+const whiteList=['/login']
+router.beforeEach((to,from,next)=>{
+	const token=getToken()
+	if(token){		//是否已经登陆
+		if(store.state.info){		//有用户信息
+			if(to.path==="/login"){
+				next("/")
+			}else{			
+				next()
+			}
+		}else{								//获取用户信息
+			getInfo({token:token}).then((response)=>{
+				const d=response.data.data
+				store.commit("setInfo",response.data)
+				next()						
+			}).catch(()=>{
+				LoginOut()
+				next("/login")
+			})
+		}
+	}else{
+		if(whiteList.includes(to.path)){
+			next()
+		}else{	
+			LoginOut()		
+			next("/login")
+		}
+	}
+})
+
 
 /* eslint-disable no-new */
 new Vue({

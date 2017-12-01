@@ -1,6 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 Vue.use(Router)
+
+/*登陆*/
+import login from '@/views/login/login'
+
 /*主体布局*/
 import Layout from '@/views/layout/layer'
 
@@ -18,6 +22,9 @@ import components from './components'
 import demos from './demo'
 
 
+/*404*/
+import nopage from '@/views/404/404'
+
 /*
 hidden:是否将当前数据显示在导航中
 noDropdown: 没有下拉  default:false
@@ -25,6 +32,12 @@ noDropdown: 没有下拉  default:false
 export default new Router({
   linkActiveClass:"isActive",
   routes: [
+    {
+      path: '/login',
+      name: '登录',
+      hidden:"true",
+      component: login
+    },
     {
       path: '/',
       name: '首页',
@@ -62,6 +75,15 @@ export default new Router({
         }
       ]
     },
-    demos
+    demos,
+    { path: '/404',
+      name:"404",
+      hidden: true,
+      component: nopage
+    },
+    { path: '*',
+      redirect:"/404",
+      hidden: true,
+    }
   ]
 })

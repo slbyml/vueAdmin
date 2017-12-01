@@ -62,7 +62,7 @@
 			getTableLists(){
 				this.loading=true
 				getTableList(this.page).then(response=>{
-					this.dataList=response.data.lists
+					this.dataList=response.lists
 					this.loading=false
 				})
 			},

@@ -1,11 +1,18 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
+import {setToken} from "@/untils/auth"
+import cookies from "js-cookie"
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
 	state:{
-		hidesidebar:localStorage.getItem("hidesidebar") === "1"
+		hidesidebar:localStorage.getItem("hidesidebar") === "1",
+		token:"",
+		info:null
+	},
+	getters:{
+		info:state=> state.info
 	},
 	mutations:{
 		changeSildbar(state){
@@ -15,6 +22,17 @@ export default new Vuex.Store({
 				localStorage.setItem("hidesidebar",1)
 			}
 			state.hidesidebar = !state.hidesidebar
+		},
+		setToken(state,token){
+			setToken(token)
+			state.token=token
+		},
+		setInfo(state,info){
+			state.info=info
+		},
+		LoginOut(state){
+			state.token="";
+			state.info=null;
 		}
 	}
 })
