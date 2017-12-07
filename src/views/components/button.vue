@@ -28,8 +28,20 @@
 			<dt>加载中……：</dt>
 			<dd><pj-button type="primary" loading>加载中</pj-button></dd>
 		</dl>
+		<dl class="list">
+			<dt>水波纹指令：</dt>
+			<dd><pj-button type="primary" v-waves>水波纹指令</pj-button></dd>
+		</dl>
 	</div>
 </template>
+<script>
+	import waves from '@/directive/waves/index.js' // 水波纹指令
+	export default{
+		directives:{
+			waves
+		}
+	}
+</script>
 <style scoped lang="scss">
 .list{margin:15px 15px 25px 10px;clear:both;width:100%;overflow:hidden;
 	dt{margin-bottom:10px;font-weight:bold;font-size:16px;}

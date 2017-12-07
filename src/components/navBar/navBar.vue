@@ -4,8 +4,8 @@
 			<i class="iconfont icon-toggleMenu"></i>
 		</div>
 		<crumbs-box class="levelbar"></crumbs-box>
-		<div class="userMenu">
-			<span @click.stop="changeMenu">{{myName}}</span>
+		<div class="userMenu" @mouseover="userMenu=true" @mouseout="userMenu=false">
+			<span >{{myName}}</span>
 			<transition name="fade">
 				<ul v-show="userMenu">
 					<li @click.stop="loginOut">退出</li>
@@ -26,8 +26,8 @@
 		},
 		computed:{
 			myName(){
-				//return this.$store.state.info.name
-				return "超级管理员23"
+				return this.$store.state.info.name
+				//return "超级管理员23"
 			}
 		},
 		methods:{
@@ -60,7 +60,7 @@ $h:50px;
 .userMenu{float:right;margin-right:10px;height:$h;position:relative;z-index: 10;
 	&:hover span{background-color:#e6ebf5}
 	&>span{cursor:pointer;display:inline-block;padding:0 15px;line-height:$h;min-width:50px;}
-	ul{position:absolute;background-color:#fff;left:0;top:$h;box-shadow:0 0 5px 1px #ccc;width:100%;
+	ul{position:absolute;background-color:#fff;left:0;top:$h - 2;box-shadow:0 0 5px 1px #ccc;width:100%;
 		li{text-align:center;line-height:$h;cursor:pointer;
 			&:hover{background-color:#e6ebf5}
 		}

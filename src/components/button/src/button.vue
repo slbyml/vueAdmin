@@ -49,6 +49,7 @@
 		&.button-mini{padding:7px 12px;font-size:12px;
 			.icon-loading{font-size:12px}
 		}
+		&>span{user-select:none}
 	}
 	.btn-disabled{cursor:not-allowed;
 		&.btn-disabled{opacity:.8}

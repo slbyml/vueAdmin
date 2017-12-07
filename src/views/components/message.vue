@@ -6,28 +6,32 @@
 <template>
 	<div class="messageBox">	
 		<div class="list">
-			<pj-button @click="handleClick('info')">消息</pj-button>
+			<pj-button @click="handleClick('info')"  v-waves>消息</pj-button>
 		</div>
 		<div class="list">
-			<pj-button type="primary" @click="handleClick('success')">成功</pj-button>
+			<pj-button type="primary" @click="handleClick('success')"  v-waves>成功</pj-button>
 		</div>
 		<div class="list">
-			<pj-button type="warning" @click="handleClick('warning')">警告</pj-button>
+			<pj-button type="warning" @click="handleClick('warning')"  v-waves>警告</pj-button>
 		</div>
 		<div class="list">
-			<pj-button type="danger" @click="handleClick('error')">错误</pj-button>
+			<pj-button type="danger" @click="handleClick('error')"  v-waves>错误</pj-button>
 		</div>
 		<div class="list">
-			<pj-button  @click="handleClick('loading')">加载中</pj-button>
+			<pj-button  @click="handleClick('loading')"  v-waves>加载中</pj-button>
 		</div>
 	</div>
 </template>
 <script>
+	import waves from '@/directive/waves/index.js' // 水波纹指令
 	export default {
 		data(){
 			return{
 
 			}
+		},
+		directives:{
+			waves
 		},
 		methods:{
 			handleClick(type){

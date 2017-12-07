@@ -3,7 +3,9 @@
 		<silder></silder>
 		<div class="container">
 			<nav-bar></nav-bar>
-			<content-box></content-box>
+			<div class="main">
+				<content-box></content-box>
+			</div>
 		</div>
 	</div>
 </template>
@@ -38,6 +40,8 @@
 		width: 100%;min-height: 100vh;
 	}
 	.container{
+		position:relative;
+		height:100vh;
 		transition:margin .3s;
 		margin-left:$silderWidth;
 	}
@@ -48,4 +52,5 @@
 		.toggleSilder .iconfont{transform:rotate(0deg)}
 	}
 	.appContent{clear:both;padding:15px;}
+	.main{position:absolute;left:0;top:50px;width:100%;bottom:0;overflow-y:auto}
 </style>

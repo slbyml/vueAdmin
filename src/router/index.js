@@ -30,6 +30,7 @@ hidden:是否将当前数据显示在导航中
 noDropdown: 没有下拉  default:false
 */
 export default new Router({
+  mode: 'history',
   linkActiveClass:"isActive",
   routes: [
     {

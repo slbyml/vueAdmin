@@ -26,7 +26,7 @@
 						<td>{{item.author}}</td>
 						<td>{{item.number}}</td>
 						<td>{{item.data}}</td>
-						<td><pj-button type="primary" size="mini" @click.native="delList(index)" >删除</pj-button></td>
+						<td><pj-button type="primary" size="mini" @click.native="delList(index)" :loading="item.loading">删除</pj-button></td>
 					</tr>
 				</tbody>
 			</table>	
@@ -62,13 +62,19 @@
 			getTableLists(){
 				this.loading=true
 				getTableList(this.page).then(response=>{
+					response.lists.forEach((item)=>{
+						item.loading=false
+					})
 					this.dataList=response.lists
 					this.loading=false
 				})
 			},
 			delList(index){
-				this.dataList.splice(index,1)
-				this.$Message.success("删除成功")
+				this.dataList[index].loading=true
+				setTimeout(()=>{
+					this.dataList.splice(index,1)
+					this.$Message.success("删除成功")
+				},1000)
 			}
 		}
 	}

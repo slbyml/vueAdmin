@@ -8,11 +8,12 @@ axios.interceptors.response.use(function (response) {
 	if(res.code !== 200){
 		return Promise.reject(response.data)
 	}else{
-		return response.data;
+		return res;
 	}
     
   }, function (error) {
     // 对响应错误做点什么
+    console.log(error)
     return Promise.reject(error);
   });
 
@@ -43,8 +44,25 @@ const getInfo=(token)=>{
 		params:token
 	})
 }
+/*获取新闻列表*/
+const getNews=()=>{
+	return axios({
+		url:"/news",
+		method:"get"
+	})
+}
+/*获取新闻详情*/
+const details=(token)=>{
+	return axios({
+		url:"/details",
+		method:"get",
+		params:token
+	})
+}
 export {
 	getTableList,
 	login,
-	getInfo
+	getInfo,
+	getNews,
+	details
 }
