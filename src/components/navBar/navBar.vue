@@ -51,7 +51,7 @@
 <style scoped lang="scss">
 li{list-style:none}
 $h:50px;
-.NavBar{background-color:#eef1f6;position: relative;height:$h;line-height:$h;}
+.NavBar{background-color:#eef1f6;position: relative;height:$h;line-height:$h;box-shadow:0 1px 3px 0 rgba(0,0,0,.12), 0 0 3px 0 rgba(0,0,0,.04);z-index:1}
 .toggleSilder{text-align:center;float: left;cursor:pointer;width:46px;height:$h;
 	&:hover{background-color:#e6ebf5}
 	i{font-size:24px;transition:transform .3s;display: inline-block;transform:rotate(90deg)}

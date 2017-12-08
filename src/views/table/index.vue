@@ -1,13 +1,13 @@
 <template>
 	<div class="appContent">
-		<div class="table table-border table-hover" v-loading="loading" loading-text="拼命加载中……">
+		<div class="table table-border table-hover" v-loading.fullscreen="loading" loading-text="拼命加载中……">
 			<table cellspacing="0" cellpadding="0" border="0"  v-loading.fullscreen="aaa">
 				<thead>
 					<tr>
 						<th>文章ID</th>
 						<th>作者</th>
 						<th>标题</th>
-						<th>简介</th>
+						<th  width="333">简介</th>
 						<th>阅读量</th>
 						<th>发布日期</th>
 						<th>设置</th>
@@ -23,10 +23,16 @@
 								<template slot="content">文章ID：{{item.id}}</template>
 							</tool-tip>
 						</td>
-						<td>{{item.author}}</td>
+						<td>
+							<el-input v-model="item.author" v-if="item.edit" size="small"></el-input>
+							<div v-else>{{item.author}}</div>
+						</td>
 						<td>{{item.number}}</td>
 						<td>{{item.data}}</td>
-						<td><pj-button type="primary" size="mini" @click.native="delList(index)" :loading="item.loading">删除</pj-button></td>
+						<td>
+							<pj-button :type="item.edit?'success':'primary'" size="mini" @click.native="item.edit=!item.edit">{{item.edit?"完成":"编辑"}}</pj-button>
+							<pj-button type="primary" size="mini" @click.native="delList(index)" :loading="item.loading">删除</pj-button>
+						</td>
 					</tr>
 				</tbody>
 			</table>	
@@ -62,8 +68,10 @@
 			getTableLists(){
 				this.loading=true
 				getTableList(this.page).then(response=>{
-					response.lists.forEach((item)=>{
+					const items=response.lists;
+					this.dataList=items.map(item=>{
 						item.loading=false
+						item.edit=false
 					})
 					this.dataList=response.lists
 					this.loading=false
@@ -80,10 +88,11 @@
 	}
 </script>
 <style lang="scss">
-	.table{box-sizing:border-box;
+	.table{box-sizing:border-box;table-layout:fixed;
 		table{width:100%;border-collapse:collapse;}
 		tr{background-color:#fff}
 		td , th{border-bottom:1px solid #dfe6ec;padding:10px;text-align:center;font-size:14px;}
+		tbody td{height:32px;}
 	}
 	.table-border{
 		thead tr{background-color:#eef1f6;}

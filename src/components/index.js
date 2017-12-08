@@ -17,6 +17,7 @@ Vue.prototype.$Message=Message
 
 
 /*element*/
-import {Pagination} from 'element-ui'
+import {Pagination,Input} from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 Vue.use(Pagination)
+Vue.use(Input)

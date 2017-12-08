@@ -3,8 +3,11 @@
 		<div class="loginForm">			
 			<h4>VUEADMIN</h4>
 			<ul>
-				<li><input type="text" placeholder="用户名" v-model="loginForm.name" @keyup.enter.native="handleLogin"></li>
-				<li><input type="password" placeholder="密码" v-model="loginForm.password" @keyup.enter.native="handleLogin"></li>
+				<li>
+					<el-input v-model="loginForm.name" placeholder="用户名" @keyup.enter.native="handleLogin"></el-input>
+				</li>
+				<li>					
+					<el-input v-model="loginForm.password" placeholder="密码" @keyup.enter.native="handleLogin" type="password"></el-input>
 				<li><pj-button  type="primary" @click="handleLogin" :loading="load">sign in</pj-button></li>
 			</ul>
 		</div>

@@ -22,7 +22,7 @@ export default {
     {
       path:"news",
       name:"消息列表",
-      component: newslist,  
+      component: newslist
     },
     {
       path:"news/:id",

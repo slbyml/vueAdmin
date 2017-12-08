@@ -21,6 +21,7 @@ const toggleLoading=(el,binding)=>{
 					el.appendChild(el.mask)
 				}
 			}
+			el.domInserted=true
 			Vue.nextTick(()=>{
 				el.instance.visible=true
 			})
@@ -52,6 +53,11 @@ export default{
 				el.instance.setText(el.getAttribute("loading-text"))
 				if(binding.oldValue!==binding.value){
 					toggleLoading(el,binding)
+				}
+			},
+			unbind(el,binding){
+				if(el.domInserted){
+					el.mask.parentNode && el.mask.parentNode.removeChild(el.mask)
 				}
 			}
 		})
