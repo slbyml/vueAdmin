@@ -36,6 +36,15 @@ const login=(loginForm)=>{
 	})
 
 }
+/*解锁*/
+const openLock=(loginForm)=>{
+	return axios({
+		url:"/getLockPassword",
+		method:"post",
+		params:loginForm
+	})
+
+}
 /*获取用户信息*/
 const getInfo=(token)=>{
 	return axios({
@@ -59,10 +68,20 @@ const details=(token)=>{
 		params:token
 	})
 }
+
+const getStopping=()=>{
+	return axios({
+		url:"/shopping",
+		method:"get"
+	})
+
+}
 export {
 	getTableList,
 	login,
 	getInfo,
 	getNews,
-	details
+	details,
+	openLock,
+	getStopping
 }

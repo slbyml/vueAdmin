@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import {setToken} from "@/untils/auth"
+import {setToken,noLocking} from "@/untils/auth"
 import cookies from "js-cookie"
 
 Vue.use(Vuex)
@@ -24,6 +24,7 @@ export default new Vuex.Store({
 			state.hidesidebar = !state.hidesidebar
 		},
 		setToken(state,token){
+			noLocking()
 			setToken(token)
 			state.token=token
 		},

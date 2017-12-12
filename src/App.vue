@@ -5,6 +5,7 @@
 </template>
 
 <script>
+	import "./assets/table.scss"
 	export default {
 	  name: 'app'
 	}
@@ -12,7 +13,6 @@
 
 <style>
   	@import '~normalize.css/normalize.css';
-  	@import '//at.alicdn.com/t/font_465165_owm6o2a2ys5opqfr.css';
+  	@import '//at.alicdn.com/t/font_465165_s282ih376gczncdi.css';
   	@import './assets/main.scss';
-
 </style>

@@ -2,9 +2,22 @@ import router from './router'
 import store from './store'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
-import {getToken,LoginOut} from '@/untils/auth'
+import {getToken,LoginOut,getLocking,noLocking} from '@/untils/auth'
 import {getInfo} from "@/untils/fetch"
 
+//是否锁屏
+const lock=(to,from,next)=>{	
+	if(getLocking()){	//锁屏
+		if(to.path !== "/locking"){		
+			next("/locking")
+			NProgress.done()
+			return true
+		}else{
+			next()
+		}
+		NProgress.done()
+	}
+}
 
 
 /*必须放在  new Vue前面，否则第一次不触发*/
@@ -13,6 +26,7 @@ router.beforeEach((to,from,next)=>{
 	NProgress.start()
 	const token=getToken()
 	if(token){		//是否已经登陆
+		if(lock(to,from,next)) return false;
 		if(store.state.info){		//有用户信息
 			if(to.path==="/login"){
 				next("/")

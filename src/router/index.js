@@ -12,9 +12,6 @@ import Layout from '@/views/layout/layer'
 import sketch from '@/views/sketch'
 
 
-/*table*/
-const tables = () => import("@/views/table")
-
 
 /*组件*/
 import components from './components'
@@ -22,6 +19,8 @@ import components from './components'
 import demos from './demo'
 
 
+/*锁屏*/
+import locking from '@/views/locking/locking'
 /*404*/
 import nopage from '@/views/404/404'
 
@@ -61,22 +60,12 @@ export default new Router({
       ]
     },
     components,
-    {
-      path:"/tables",
-      component: Layout,
-      icon:"table",
-      name:"表格",
-      noDropdown:true,
-      redirect:"/tables/index",
-      children:[     
-        {         
-          component: tables,      
-          path:"index",
-          
-        }
-      ]
-    },
     demos,
+    { path: '/locking',
+      name:"锁屏",
+      icon:"lock",
+      component: locking
+    },    
     { path: '/404',
       name:"404",
       hidden: true,

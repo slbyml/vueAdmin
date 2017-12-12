@@ -88,20 +88,6 @@
 	}
 </script>
 <style lang="scss">
-	.table{box-sizing:border-box;table-layout:fixed;
-		table{width:100%;border-collapse:collapse;}
-		tr{background-color:#fff}
-		td , th{border-bottom:1px solid #dfe6ec;padding:10px;text-align:center;font-size:14px;}
-		tbody td{height:32px;}
-	}
-	.table-border{
-		thead tr{background-color:#eef1f6;}
-		th,td{border:1px solid #dfe6ec}
-	}
-	.table-hover{
-		tbody tr td{transition:background-color .25s}
-		tbody tr:hover td{background-color:#eef1f6}		
-	}
 	.paginationBox{margin-top:10px;
 		li,button{border:1px solid #d1dbe5;margin-left:-1px;
 			&.active{background-color: #20a0ff;color:#fff;}

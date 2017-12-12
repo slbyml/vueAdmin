@@ -12,16 +12,24 @@
 				</ul>
 			</transition>
 		</div>
+		<div class="lockScreen" title="全屏" @click="fullScreen">			
+			<i class="iconfont" :class="fullscreen?'icon-nofull':'icon-full'"></i>
+		</div>
+		<div class="lockScreen" title="锁屏" @click="lockScreen">			
+			<i class="iconfont icon-lock"></i>
+		</div>
 	</div>
 </template>
 <script>	
+	import screenfull from "screenfull"
 	import crumbsBox from "./crumbsbar"
-	import {LoginOut} from "@/untils/auth"
+	import {LoginOut,locking} from "@/untils/auth"
 	export default {
 		name:"NavBar",
 		data(){
 			return {
-				userMenu:false
+				userMenu:false,
+				fullscreen:false
 			}
 		},
 		computed:{
@@ -41,6 +49,14 @@
 				this.userMenu=false;
 				LoginOut()
 				this.$router.push("/login")
+			},
+			lockScreen(){
+				locking()
+				this.$router.push("/locking")
+			},
+			fullScreen(){
+				screenfull.toggle()
+				this.fullscreen=!screenfull.isFullscreen
 			}
 		},
 		components:{
@@ -66,4 +82,10 @@ $h:50px;
 		}
 	}
 }
+.lockScreen{float:right;padding:0 10px;cursor:pointer;
+	&:hover{background-color:#e6ebf5}
+
+}
+.icon-full{font-size:20px;}
+.icon-nofull{font-size:16px;}
 </style>

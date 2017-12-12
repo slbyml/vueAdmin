@@ -1,0 +1,14 @@
+.table{box-sizing:border-box;table-layout:fixed;
+    table{width:100%;border-collapse:collapse;}
+    tr{background-color:#fff}
+    td , th{border-bottom:1px solid #dfe6ec;padding:10px;text-align:center;font-size:14px;}
+    tbody td{height:32px;}
+}
+.table-border{
+    thead tr{background-color:#eef1f6;}
+    th,td{border:1px solid #dfe6ec}
+}
+.table-hover{
+    tbody tr td{transition:background-color .25s}
+    tbody tr:hover td{background-color:#eef1f6}     
+}
