@@ -31,4 +31,4 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 
 
 > 账号：amdin
-< 密码：admin
+> 密码：admin
