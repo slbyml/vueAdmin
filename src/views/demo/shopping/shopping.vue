@@ -1,9 +1,10 @@
 <template>
 	<div class="shopping table table-border table-hover" v-loading.fullscreen="loading">
+		<h6 class="head">VUE版的购物车写起来方便，简单，条理更清晰</h6>
 		<table>
 			<thead>
 				<tr>
-					<td style="width:50px"><el-checkbox v-model="allChe" @change="allCheChange">全选</el-checkbox></td>
+					<td style="width:50px"><el-checkbox v-model="allChe">全选</el-checkbox></td>
 					<td style="text-align:left">商品信息</td>
 					<td>单价</td>
 					<td>数量</td>
@@ -13,7 +14,7 @@
 			</thead>
 			<tbody>
 				<tr v-for="(item,index) in lists">
-					<td><el-checkbox v-model="item.che" @change="cheChange"></el-checkbox></td>
+					<td><el-checkbox v-model="item.che"></el-checkbox></td>
 					<td>
 						<div class="pic">
 							<img :src="item.img" alt="item.mes">
@@ -47,7 +48,6 @@
 		data(){
 			return {
 				lists:[],
-				allChe:false,
 				loading:false
 			}
 		},
@@ -56,13 +56,20 @@
 		},
 		computed:{
 			allPrice(){
-				let money=0
-				this.lists.forEach(item=>{
-					if(item.che){
-						money+=item.price*item.inner
-					}
-				})
-				return money
+				return this.lists.reduce((prev,curr)=>{
+					if(!curr.che) return prev
+					return prev+curr.price*curr.inner
+				},0)
+			},
+			allChe:{
+				get(){
+					return this.lists.every(item=>item.che)
+				},
+				set(val){					
+					this.lists.forEach(item=>{
+						item.che=val
+					})
+				}
 			}
 		},
 		methods:{
@@ -70,20 +77,7 @@
 				this.loading=true
 				getStopping().then(response=>{
 					this.loading=false
-					this.lists=response.lists
-					this.allChe=this.lists.every(item=>{
-						return item.che
-					})					
-				})
-			},
-			cheChange(){
-				this.allChe=this.lists.every(item=>{
-					return item.che
-				})
-			},
-			allCheChange(){
-				this.lists.forEach(item=>{
-					item.che=this.allChe
+					this.lists=response.lists				
 				})
 			},
 			del(index){
@@ -93,6 +87,7 @@
 	}
 </script>
 <style scoped lang="scss">
+	.head{text-align:center;padding-bottom:15px;font-size:18px}
 	.shopping{padding:30px;}
 	.pic{float: left;width:80px;height:80px;}
 	.mes{float:left;width:200px;text-align:left;padding-top:15px;margin:0 10px}

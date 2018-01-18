@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 axios.defaults.baseURL=process.env.BASE_API
-axios.defaults.timeout=5000
+//axios.defaults.timeout=5000
 /*对响应拦截*/
 axios.interceptors.response.use(function (response) {
 	const res=response.data
