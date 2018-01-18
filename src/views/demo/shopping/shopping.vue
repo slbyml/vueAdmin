@@ -1,5 +1,5 @@
 <template>
-	<div class="shopping table table-border table-hover" v-loading.fullscreen="loading">
+	<div class="shopping table table-border table-hover" v-loading="loading">
 		<h6 class="head">VUE版的购物车写起来方便，简单，条理更清晰</h6>
 		<table>
 			<thead>

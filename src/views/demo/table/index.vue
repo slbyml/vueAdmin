@@ -1,6 +1,6 @@
 <template>
 	<div class="appContent">
-		<div class="table table-border table-hover" v-loading.fullscreen="loading" loading-text="拼命加载中……">
+		<div class="table table-border table-hover" v-loading="loading" loading-text="拼命加载中……">
 			<table cellspacing="0" cellpadding="0" border="0"  v-loading.fullscreen="aaa">
 				<thead>
 					<tr>

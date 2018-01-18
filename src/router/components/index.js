@@ -11,7 +11,7 @@ const tooltip= ()=> import("@/views/components/tooltip")
 
 export default {
   path: '/components',
-  name: '组件',
+  name: '自制组件',
   icon:'zujianku',
   component: Layout,
   redirect:"/components/button",
