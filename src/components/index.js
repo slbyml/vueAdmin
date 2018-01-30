@@ -12,6 +12,10 @@ import ToolTip from './tooltip';
 Vue.use(ToolTip)
 
 /*message*/
+import Progress from "./progress"
+Vue.use(Progress)
+
+/*message*/
 import Message from "./message"
 Vue.prototype.$Message=Message
 

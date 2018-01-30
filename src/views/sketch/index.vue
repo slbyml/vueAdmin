@@ -1,7 +1,7 @@
 <template>
 	<div class="appContent">
 		<div class="sketch">
-			<h5>这只是仅仅一个首页而已！</h5>
+			<h5>这只是首页！一个用vue写的首页！仅此而已！！</h5>
 			<dl>
 				<dt>权限:</dt>
 				<dd>{{info.introduction}}</dd>
@@ -25,6 +25,11 @@
 			<dl>
 				<dt>工作:</dt>
 				<dd>{{info.work}}</dd>
+			</dl>
+			<br>
+			<dl>
+				<dt>用了啥：</dt>
+				<dd>vue+部分element-ui+各种借鉴</dd>
 			</dl>
 		</div>
 	</div>

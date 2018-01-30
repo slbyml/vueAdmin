@@ -8,6 +8,8 @@ const loading= ()=> import("@/views/components/loading")
 const message= ()=> import("@/views/components/message")
 /*文字提示*/
 const tooltip= ()=> import("@/views/components/tooltip")
+/*进度条*/
+const Progress= ()=> import("@/views/components/Progress")
 
 export default {
   path: '/components',
@@ -20,7 +22,12 @@ export default {
 	  	path:"button",
 	  	name:"按钮",
       component: button,  
-  	},    
+  	},   
+    {
+      path:"Progress",
+      name:"进度条",
+      component: Progress,  
+    },   
     {
       path:"loading",
       name:"加载",
