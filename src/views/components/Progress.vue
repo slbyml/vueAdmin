@@ -27,7 +27,6 @@
 					let num=this.num
 					num += this.getRandom()
 					this.num=(num<0 || num > 100)?50:num
-					console.log(++aa)
 				},1000)
 			},
 			getRandom(min=-15,max=15){				
