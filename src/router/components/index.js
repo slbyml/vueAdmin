@@ -10,6 +10,8 @@ const message= ()=> import("@/views/components/message")
 const tooltip= ()=> import("@/views/components/tooltip")
 /*进度条*/
 const Progress= ()=> import("@/views/components/Progress")
+/*刷新&加载*/
+const PullToRefresh= ()=> import("@/views/components/PullToRefresh")
 
 export default {
   path: '/components',
@@ -42,6 +44,11 @@ export default {
       path:"tooltip",
       name:"文字提示",
       component: tooltip,  
+    },     
+    {
+      path:"pullRefresh",
+      name:"刷新&加载",
+      component: PullToRefresh,  
     }
   ]
 }

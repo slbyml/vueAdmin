@@ -19,6 +19,10 @@ Vue.use(Progress)
 import Message from "./message"
 Vue.prototype.$Message=Message
 
+/*message*/
+import PullToRefresh from "./PullToRefresh"
+Vue.use(PullToRefresh)
+
 
 /*element ui*/
 import {Pagination,Input,Checkbox,InputNumber} from 'element-ui'
